@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+    <h1>Exercises</h1>
+    <h2>I. Przeglądarka</h2>
+    <p class="description">
+        Zadanie polega na napisaniu skryptu w JavaScript, który po kliknięciu w przycisk wygeneruje 20 losowych liczb
+        całkowitych z zakresu od 1 do 100 i umieści je w dwóch kolumnach. W jednej kolumnie mają znaleźć się tylko
+        liczby parzyste, a w drugiej nieparzyste. Dodatkowo obie kolumny muszą być posortowane rosnąco.
+    </p>
+
+    <button class="button"
+            onclick="createRandomNumbersTable('randomNumbersTable', 20)">Generate numbers</button>
+    <div id="randomNumbersTable"
+         class="table"></div>
+
+    <h2>II. Formularze</h2>
+    <div class="description">
+        <div>
+            Twoim zadaniem jest napisać własną bibliotekę książek z wykorzystaniem HTML, CSS oraz JavaScript, w której
+            znajdzie się formularz przyjmujący następujące pola:
+        </div>
+        <ol style="list-style-type:lower-alpha">
+            <li>
+                Tytuł książki (co najmniej 1 znak)
+            </li>
+            <li>
+                Autor książki (co najmniej 3 znaki)
+            </li>
+            <li>
+                Priorytet przeczytania (liczby od 1 do 5)
+            </li>
+            <li>
+                Listę z kategoriami (3 kategorie do wyboru)
+            </li>
+            <li>
+                Przycisk umożliwiający wysyłanie
+            </li>
+        </ol>
+        <div>
+            Po wysłaniu formularza strona nie może się przeładować. Jednocześnie wyświetl nowo dodaną książkę w tabeli i
+            wyczyść formularz.
+        </div>
+        <div>
+            Kryteria akceptacji:
+        </div>
+        <ul>
+            <li>
+                Walidacja dla pól formularza. W przypadku kiedy jakieś pole nie przechodzi walidacji, książka nie może
+                zostać dodana.
+            </li>
+            <li>
+                Użytkownik ma możliwość dodania kolejnej książki do tabeli.
+            </li>
+            <li>
+                Cała tabela zapisuje się w localstorage (przy ponownym otworzeniu przeglądarki zostaje
+                załadowana ponownie i wyświetlona z takim samym stanem jak była przy zamknięciu).
+            </li>
+        </ul>
+    </div>
+
+    <form class="book-form"
+          name="library"
+          onsubmit="addBook(event)">
+        <label for="bookTitle">Tytuł książki (co najmniej 1 znak)</label>
+        <input type="text"
+               name="bookTitle"
+               id="bookTitle"
+               minlength="1"
+               title="co najmniej 1 znak"
+               required>
+
+        <label for="bookAuthor">Autor książki (co najmniej 3 znaki)</label>
+        <input type="text"
+               name="bookAuthor"
+               id="bookAuthor"
+               minlength="3"
+               title="co najmniej 3 znaki"
+               required>
+
+        <label for="bookPriority">Priorytet przeczytania (liczby od 1 do 5)</label>
+        <input type="number"
+               name="bookPriority"
+               id="bookPriority"
+               min="1"
+               max="5"
+               title="liczby od 1 do 5"
+               required>
+
+        <div>Wybierz kategorie:</div>
+        <fieldset id="category">
+            <div class="category-wrap">
+                <input type="checkbox"
+                       name="textbooks">
+                <label for="textbooks">Podręczniki</label>
+            </div>
+            <div class="category-wrap">
+                <input type="checkbox"
+                       name="fiction">
+                <label for="fiction">Literatura piękna</label>
+            </div>
+            <div class="category-wrap">
+                <input type="checkbox"
+                       name="journalism">
+                <label for="journalism">Publicystyka</label>
+            </div>
+        </fieldset>
+
+        <button type="submit"
+                class="button">Dodać książkę</button>
+    </form>
+
+    <table class="table">
+        <tbody id="libraryTable"></tbody>
+    </table>
+
+
+    <h2>III. React</h2>
+    <p class="description">
+        Przygotowanie aplikacji, która będzie pobierała cytaty z API, która będzie wyświetlała losowy cytat:
+        <a
+           href="https://gist.githubusercontent.com/natebass/b0a548425a73bdf8ea5c618149fe1fce/raw/f4231cd5961f026264bb6bb3a6c41671b044f1f4/quotes.json">link</a>.
+        Dodatkowo stwórz przycisk który umożliwi wylosowanie następnego cytatu oraz przycisk, który
+        pozwoli na powrót do poprzedniego cytatu.
+    </p>
+    <div id="quoteWrap"></div>
+    <button id="nextQuote"
+            class="button"
+            onclick="loadNextQuote()">Następny cytat</button>
+
+
+    <h2>IV. Frontend CSS</h2>
+    <p class="description">
+        Umieść na stronie zdjęcie, które zawsze będzie zajmowało 100% szerokości oraz 100% widoku okna przeglądarki.
+        Obrazek ma zachowywać proporcje.
+    </p>
+    <button class="button"
+            onclick="getImage()">Zdjęcie</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
